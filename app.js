@@ -9,7 +9,7 @@ function CookieStand (location, minHourCust, maxHourCust, avgCookieCust) {
   this.avgCookieCust = avgCookieCust;
   this.hourTotals = [];
   this.dailyTotal = 0;
-
+//
   this.cookiesPerHour = function() {
     for (var i = 0; i < hours.length; i++) {
       var cookiesPerHour = Math.floor(this.avgCookieCust * this.randomCustHour());
