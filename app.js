@@ -1,5 +1,5 @@
 'use strict';
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var tbl = document.createElement('table');
 
 function CookieStand (location, minHourCust, maxHourCust, avgCookieCust) {
@@ -32,7 +32,7 @@ function CookieStand (location, minHourCust, maxHourCust, avgCookieCust) {
     var heading = document.createElement('tr');
     console.log(heading);
     var blank = document.createElement('td');
-    blank.textContent = '';
+    blank.textContent = 'Location';
 
     var headerRow = document.createElement('thead');
     headerRow.appendChild(blank);
