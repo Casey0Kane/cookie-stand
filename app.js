@@ -50,11 +50,17 @@ function CookieStand (location, minHourCust, maxHourCust, avgCookieCust) {
     location.textContent = this.location;
     row.appendChild(location);
 
-    for(var i = 0; i < hours.length; i++) {
-      var numCookie = document.createElement('td');
-      numCookie.textContent = this.hourTotals[i];
-      row.appendChild(numCookie);
-      tbl.appendChild(row);
+    for(i = 0; i < hours.length; i++) {
+      var total = document.createElement('th');
+      total.textContent = this.dailyTotal;
+      headerRow.appendChild(total);
+
+      for(var i = 0; i < hours.length; i++) {
+        var numCookie = document.createElement('td');
+        numCookie.textContent = this.hourTotals[i];
+        row.appendChild(numCookie);
+        tbl.appendChild(row);
+      }
     }
   };
   document.body.appendChild(tbl);
