@@ -1,6 +1,7 @@
 'use strict';
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', ];
 var tbl = document.createElement('table');
+var form = document.getElementById('location-form');
 
 function CookieStand (location, minHourCust, maxHourCust, avgCookieCust) {
   this.location = location;
@@ -9,7 +10,12 @@ function CookieStand (location, minHourCust, maxHourCust, avgCookieCust) {
   this.avgCookieCust = avgCookieCust;
   this.hourTotals = [];
   this.dailyTotal = 0;
-//
+
+  this.randomCustHour = function() {
+    return Math.floor(Math.random() * (this.maxHourCust - this.minHourCust + 1)
+      + this.minHourCust);
+  };
+
   this.cookiesPerHour = function() {
     for (var i = 0; i < hours.length; i++) {
       var cookiesPerHour = Math.floor(this.avgCookieCust * this.randomCustHour());
@@ -77,3 +83,31 @@ seaTac.makeList();
 seattleCenter.makeList();
 capitolHill.makeList();
 alki.makeList();
+
+var handleForm = function(event) {
+  event.preventDefault();
+
+  if (!event.target.locationname.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
+    return alert('Fields cannot be empty!');
+  }
+
+  var loc = event.target.locationname.value;
+  var min = parseInt(event.target.mincust.value);
+  var max = parseInt(event.target.maxcust.value);
+  var avg = parseInt(event.target.avgcust.value);
+
+  event.target.locationname.value = null;
+  event.target.mincust.value = null;
+  event.target.maxcust.value = null;
+  event.target.avgcust.value = null;
+
+
+  var newShop = new CookieStand(loc, min, max, avg);
+
+  newShop.makeList();
+
+
+};
+
+
+form.addEventListener('submit', handleForm);
