@@ -3,7 +3,7 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var allLocations = [];
-var salesDataTable = document.getElementById('salesdata');
+var salesDataTable = document.getElementById('salesDataTable');
 
 function CookieStand(locationName, minCustPerHour, maxCustPerHour, avgCookiesPerCust) {
   this.locationName = locationName;
@@ -51,7 +51,7 @@ function CookieStand(locationName, minCustPerHour, maxCustPerHour, avgCookiesPer
 }
 
 new CookieStand('First and Pike', 23, 65, 6.3);
-new CookieStand('Seatac Airport', 3, 24, 1.2);
+new CookieStand('SeaTac Airport', 3, 24, 1.2);
 new CookieStand('Seattle Center', 11, 38, 3.7);
 new CookieStand('Capitol Hill', 20, 38, 2.3);
 new CookieStand('Alki', 2, 16, 4.6);
@@ -114,45 +114,33 @@ makeHeaderRow();
 renderAllLocations();
 makeFooterRow();
 
-document.body.appendChild(salesdata);
-
-
-var pikePlaceMarket = new CookieStand('Pike Place Market', 23, 65, 6.3);
-var seaTac = new CookieStand('SeaTac Airport', 3, 24, 1.2);
-var seattleCenter = new CookieStand('Seattle Center', 11, 38, 3.7);
-var capitolHill = new CookieStand('Capitol Hill', 20, 38, 2.3);
-var alki = new CookieStand('Alki', 2, 16, 4.6);
-
-pikePlaceMarket.makeList();
-seaTac.makeList();
-seattleCenter.makeList();
-capitolHill.makeList();
-alki.makeList();
 
 var handleForm = function(event) {
   event.preventDefault();
-
-  if (!event.target.locationname.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
+  console.log('handleForm');
+  if (!event.target.locationName.value || !event.target.minCustPerHour.value || !event.target.maxCustPerHour.value || !event.target.avgCookiesPerCust.value) {
     return alert('Fields cannot be empty!');
   }
 
-  var loc = event.target.locationname.value;
-  var min = parseInt(event.target.mincust.value);
-  var max = parseInt(event.target.maxcust.value);
-  var avg = parseInt(event.target.avgcust.value);
+  var loc = event.target.locationName.value;
+  var min = parseInt(event.target.minCustPerHour.value);
+  var max = parseInt(event.target.maxCustPerHour.value);
+  var avg = parseInt(event.target.avgCookiesPerCust.value);
 
-  event.target.locationname.value = null;
-  event.target.mincust.value = null;
-  event.target.maxcust.value = null;
-  event.target.avgcust.value = null;
+  event.target.locationName.value = null;
+  event.target.minCustPerHour.value = null;
+  event.target.maxCustPerHour.value = null;
+  event.target.avgCookiesPerCust.value = null;
 
 
   var newShop = new CookieStand(loc, min, max, avg);
-
-  newShop.makeList();
+  newShop.render();
+  salesDataTable.innerHTML = '';
+  makeHeaderRow();
+  renderAllLocations();
+  makeFooterRow();
 
 
 };
-
-
+var form = document.getElementById('salesDataTable');
 form.addEventListener('submit', handleForm);
