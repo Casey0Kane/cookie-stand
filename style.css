@@ -1,5 +1,53 @@
 * {
-  outline: 1px solid black;
   background-color: lightblue;
   padding: 3px;
+  border: 1px solid black;
+  max-width: 770px;
+}
+
+body {
+  background-color: salmon;
+  max-width: 750px;
+  border: 1px solid black;
+}
+
+form {
+  background-color: gray;
+  max-width: 750px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  max-width: 750px;
+  border-radius: 25px;
+}
+
+div {
+  border: 1px solid black;
+}
+
+label {
+  border: 1px solid black;
+}
+
+legend {
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+button {
+  border: 1px solid black;
+}
+
+img {
+  border-radius: 25px;
+  max-width: 300px;
+  border-style: none;
+}
+
+p {
+
 }

@@ -1,46 +1,32 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Salmon Cookies</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+    <body>
+      <h1>Salmon Cookies</h1>
 
-<head>
-  <title> cookie-stand </title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="index" href="index.html">
-</head>
-<body>
-  <h1>Salmon cookies</h1>
-  <form id="salesDataTable">
-    <fieldset>
-      <legend>Add a new location!</legend>
+    <form id="salesInput" >
+      <fieldset>
+        <legend>Add a new store</legend>
+        <label class="nameInput">Name:
+        <input type="text" size="35" name="name"></label></br>
+        <label>Minimum Customers:
+        <input type="text" size="35" name="minCustomers"></label></br>
+        <label>Maximum Customers:
+        <input type="text" size="35" name="maxCustomers"></label></br>
+        <label>Average Sale:
+        <input type="text" size="35" name="avgCookies"></label></br>
+        <button id="submit">Submit</button>
+      </fieldset> </br>
 
-      <label for="locationName">Location Name: </label>
-      <input name="locationName" type="text" size="35" maxlength="100" placeholder="Location Name">
-      <br />
-      <label for="minCustPerHour">Min customers per hour: </label>
-      <input name="minCustPerHour" type="text" size="35" maxlength="100" placeholder="Min cust/hr">
-      <br />
-      <label for="maxCustPerHour">Max customers per hour: </label>
-      <input name="maxCustPerHour" type="text" size="35" maxlength="100" placeholder="Max cust/Hr">
-      <br />
-      <label for="avgCookiesPerCust">Average cookies per customer: </label>
-      <input name="avgCookiesPerCust" type="text" size="35" maxlength="100" placeholder="Avg cookies/cust">
-      <br />
-      <button id="commentbutton" class='reg' type="submit">Create new</button>
-    </fieldset>
-  </form>
-  </nav>
-  </div>
-  <table id="salesDataTable"> </table>
-  <!-- <article>
-    <ul id="firstAndPike"</ul>
-    <ul id="Seatac Airport"</ul>
-    <ul id="Seattle Center"</ul>
-    <ul id="Capitol Hill"</ul>
-    <ul id="Alki"</ul>
-  </article> -->
-  <script src="app.js"></script>
-</body>
+      <section class="mainData">
+        <table id="salmonTable">
+        </table>
+      </section>
+      </form>
 
-
-
-
-</html>
+      <script src="app.js"> </script>
+    </body>
+  </html>
