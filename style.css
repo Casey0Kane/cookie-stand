@@ -46,6 +46,7 @@ img {
   border-radius: 25px;
   max-width: 300px;
   border-style: none;
+  position: relative;
 }
 
 p {

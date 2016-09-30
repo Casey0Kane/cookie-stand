@@ -120,7 +120,7 @@ function dataInput(event) {
   salmonTable.textContent = null;
 
   var storeExist = doesStoreExist(storeLocations, name);
-  var index;
+  var i;
 
   function doesStoreExist(x,y) {
     for (var i = 0; i < x.length; i++) {
@@ -135,14 +135,14 @@ function dataInput(event) {
   doesStoreExist(storeLocations, name);
 
   if (storeExist === true) {
-    storeLocations[index].minCustomers = parseInt(minCustomers);
-    storeLocations[index].maxCustomers = parseInt(maxCustomers);
-    storeLocations[index].avgCookies = parseFloat(avgCookies);
-    storeLocations[index].averageCustomersPerHour = [];
-    storeLocations[index].averageCookiesPerHour = [];
-    storeLocations[index].totalCookiesPerDay = 0;
-    storeLocations[index].numOfCustomersPerHour();
-    storeLocations[index].cookiesPerCustomer();
+    storeLocations[i].minCustomers = parseInt(minCustomers);
+    storeLocations[i].maxCustomers = parseInt(maxCustomers);
+    storeLocations[i].avgCookies = parseFloat(avgCookies);
+    storeLocations[i].averageCustomersPerHour = [];
+    storeLocations[i].averageCookiesPerHour = [];
+    storeLocations[i].totalCookiesPerDay = 0;
+    storeLocations[i].numOfCustomersPerHour();
+    storeLocations[i].cookiesPerCustomer();
   }
 
   if (storeExist === false) {

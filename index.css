@@ -1,0 +1,21 @@
+* {
+  background-color: lightgray;
+}
+
+img {
+  max-width: 300px;
+}
+
+h1 {
+  text-align: center;
+  border: solid 5px salmon;
+  border-radius: 10px;
+  color: salmon;
+}
+
+p {
+  text-align: left;
+  max-width: 900px;
+  border: solid 3px gray;
+  background-color: salmon;
+}
