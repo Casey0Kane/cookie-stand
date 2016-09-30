@@ -115,7 +115,7 @@ function dataInput(event) {
   var name = event.target.name.value;
   var minCustomers = parseInt(event.target.minCustomers.value);
   var maxCustomers = parseInt(event.target.maxCustomers.value);
-  var avgCookies = parseFloat(event.target.avgCookies.value);
+  var avgCookies = parseInt(event.target.avgCookies.value);
 
   salmonTable.textContent = null;
 
@@ -137,7 +137,7 @@ function dataInput(event) {
   if (storeExist === true) {
     storeLocations[i].minCustomers = parseInt(minCustomers);
     storeLocations[i].maxCustomers = parseInt(maxCustomers);
-    storeLocations[i].avgCookies = parseFloat(avgCookies);
+    storeLocations[i].avgCookies = parseInt(avgCookies);
     storeLocations[i].averageCustomersPerHour = [];
     storeLocations[i].averageCookiesPerHour = [];
     storeLocations[i].totalCookiesPerDay = 0;
@@ -146,7 +146,7 @@ function dataInput(event) {
   }
 
   if (storeExist === false) {
-    var newStore = new Store(name, minCustomers, maxCustomers, avgCookies);
+    var newStore = new Store(name, minCustomers, maxCustomers, avgCookies); //eslint-disable-line
   }
 
   makeHeaderRow();
